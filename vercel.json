@@ -1,0 +1,15 @@
+{
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/portfolio",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+

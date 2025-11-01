@@ -3,15 +3,15 @@
   <div class="container">
     <div class="nav-content">
       <div class="logo">
-        <span class="logo-text"></span>
+        <span class="logo-text">Mohan Venkat</span>
       </div>
       <ul class="nav-links">
-        <li><a (click)="scrollTo('home')">Home</a></li>
-        <li><a (click)="scrollTo('about')">About</a></li>
-        <li><a (click)="scrollTo('experience')">Experience</a></li>
-        <li><a (click)="scrollTo('projects')">Projects</a></li>
-        <li><a (click)="scrollTo('skills')">Skills</a></li>
-        <li><a (click)="scrollTo('contact')">Contact</a></li>
+        <li><a (click)="scrollTo('home')" [class.active]="activeSection === 'home'">Home</a></li>
+        <li><a (click)="scrollTo('about')" [class.active]="activeSection === 'about'">About</a></li>
+        <li><a (click)="scrollTo('experience')" [class.active]="activeSection === 'experience'">Experience</a></li>
+        <li><a (click)="scrollTo('projects')" [class.active]="activeSection === 'projects'">Projects</a></li>
+        <li><a (click)="scrollTo('skills')" [class.active]="activeSection === 'skills'">Skills</a></li>
+        <li><a (click)="scrollTo('contact')" [class.active]="activeSection === 'contact'">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -29,7 +29,7 @@
           <span class="gradient-text">Mohan</span><br>
           <span class="hero-name">Venkat Kalla</span>
         </h1>
-        <p class="hero-subtitle">𝐂𝐨𝐦𝐩𝐮𝐭𝐞𝐫 𝐒𝐜𝐢𝐞𝐧𝐜𝐞 𝐄𝐧𝐠𝐢𝐧𝐞𝐞𝐫𝐢𝐧𝐠 𝐒𝐭𝐮𝐝𝐞𝐧𝐭</p>
+        <p class="hero-subtitle">{{ typedText }}<span class="typing-cursor">|</span></p>
         <p class="hero-description">
           Passionate about turning classroom knowledge into real-world solutions.
           Building innovative projects using modern technologies.
@@ -37,6 +37,7 @@
         <div class="hero-buttons">
           <button class="btn btn-primary" (click)="scrollTo('contact')">Get In Touch</button>
           <a href="https://github.com/MohanVenkat14" class="btn" style="background: var(--bg-tertiary); color: var(--text-primary);">View My Work</a>
+          <button class="btn btn-resume" (click)="downloadResume()">Download Resume</button>
         </div>
       </div>
       <div class="hero-image">
@@ -52,13 +53,17 @@
     <h2 class="section-title">About Me</h2>
     <div class="about-content">
       <div class="about-card">
-        <h3 class="card-title">Career Objective</h3>
         <p>
-          Enthusiastic Computer Science Engineering student pursuing a B.Tech from BVC College of Engineering. 
-          Passionate about applying classroom knowledge to real-world challenges through projects like a Pizza Hut 
-          Frontend Website. Skilled in HTML, CSS, JavaScript, Java, DSA, and DBMS with a strong interest in Java 
-          Development and Frontend Development. Seeking an internship opportunity to contribute, learn, and 
-          grow in a dynamic tech environment.
+          I'm Mohan Venkat, a passionate Computer Science Engineering (CSE) student at JNTUK University, currently in my 4th year (R20 Regulation). I'm deeply interested in Full Stack Development, Cloud Computing, and Modern Software Development.
+        </p>
+        <p>
+          I have hands-on experience building MEAN stack applications (MongoDB, Express, Angular, Node.js), deploying them on platforms like Vercel and MongoDB Atlas, and integrating APIs and databases for real-world use cases.
+        </p>
+        <p>
+          Beyond coding, I'm continuously learning advanced technologies like Cloud Solution Architecture (CSA), Cloud Application Development (CAD), and Ethical Hacking to strengthen both my development and security knowledge.
+        </p>
+        <p>
+          My goal is to become a skilled Software Engineer who can design scalable, secure, and efficient systems that make a real impact.
         </p>
       </div>
       <div class="info-grid">
@@ -72,7 +77,7 @@
         </div>
         <div class="info-item">
           <h4>Location</h4>
-          <p>India</p>
+          <p>Rajahmundry</p>
         </div>
         <div class="info-item">
           <h4>LinkedIn</h4>
@@ -186,7 +191,9 @@
           <span class="tech-tag">CSS</span>
           <span class="tech-tag">JavaScript</span>
         </div>
-        <a href="https://mohanvenkat14.github.io/Pizza/" class="project-link" target="_blank">View Project →</a>
+        <div class="project-link-container">
+          <a href="https://mohanvenkat14.github.io/Pizza/" class="project-link" target="_blank">View Project →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -262,6 +269,7 @@
             <textarea placeholder="Your Message" rows="5" name="message" [(ngModel)]="contactForm.message" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Send Message</button>
+          <div *ngIf="formError" class="error-message">{{ formError }}</div>
           <div *ngIf="submitted" class="success-message">Message sent successfully!</div>
         </form>
       </div>

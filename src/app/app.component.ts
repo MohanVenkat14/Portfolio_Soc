@@ -24,8 +24,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   contactForm: ContactForm = { name: '', email: '', message: '' };
   submitted = false;
+  formError = '';
   private targetRotationX = 0;
   private targetRotationY = 0;
+  activeSection = 'home';
+  typedText = '';
+  isTyping = false;
+  
+  private readonly typingText = 'Computer Science Engineering Student';
   
   // API Configuration - Update this for production
   private readonly API_URL = window.location.origin;
@@ -34,6 +40,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.init3DBackground();
+    this.initTypingEffect();
+    this.setupScrollListener();
   }
 
   ngAfterViewInit() {
@@ -42,6 +50,64 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.setupHoverEffects();
     }, 500);
   }
+
+
+  initTypingEffect() {
+    let index = 0;
+    let isDeleting = false;
+    let waitCount = 0;
+    
+    const typeInterval = setInterval(() => {
+      if (!isDeleting && index < this.typingText.length) {
+        // Typing
+        this.isTyping = true;
+        this.typedText = this.typingText.substring(0, index + 1);
+        index++;
+      } else if (!isDeleting && index >= this.typingText.length) {
+        // Finished typing, wait before deleting
+        waitCount++;
+        if (waitCount >= 20) { // Wait 2 seconds (20 * 100ms)
+          isDeleting = true;
+          waitCount = 0;
+        }
+      } else if (isDeleting && index > 0) {
+        // Deleting
+        index--;
+        this.typedText = this.typingText.substring(0, index);
+      } else if (isDeleting && index === 0) {
+        // Finished deleting, start typing again
+        isDeleting = false;
+        waitCount = 0;
+      }
+    }, 100);
+  }
+
+  setupScrollListener() {
+    const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
+    let lastSection = this.activeSection;
+    
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+          
+          if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+            if (lastSection !== section) {
+              // Section changed - update active section
+              this.activeSection = section;
+              lastSection = section;
+            }
+            break;
+          }
+        }
+      }
+    });
+  }
+
 
   setupHoverEffects() {
     const hoverElements = document.querySelectorAll('.card, .btn, .hero-text, .nav-links a, .project-link, .skill-item, .tech-tag');
@@ -152,7 +218,29 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   submitContact() {
-    // Show success immediately for fast response
+    // Validate form
+    if (!this.contactForm.name || !this.contactForm.name.trim()) {
+      this.formError = 'Please fill in your name';
+      return;
+    }
+    if (!this.contactForm.email || !this.contactForm.email.trim()) {
+      this.formError = 'Please fill in your email';
+      return;
+    }
+    if (!this.contactForm.message || !this.contactForm.message.trim()) {
+      this.formError = 'Please fill in your message';
+      return;
+    }
+    
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(this.contactForm.email)) {
+      this.formError = 'Please enter a valid email address';
+      return;
+    }
+
+    // Clear error and show success immediately
+    this.formError = '';
     this.submitted = true;
     const formData = { ...this.contactForm };
     this.contactForm = { name: '', email: '', message: '' };
@@ -172,8 +260,20 @@ export class AppComponent implements OnInit, AfterViewInit {
     setTimeout(() => this.submitted = false, 3000);
   }
 
+  downloadResume() {
+    // Open Google Drive resume link in new tab
+    window.open('https://drive.google.com/file/d/1Zwz7BBBAiw18SqMarWV2AaFI8m_2tP7q/view?usp=drive_link', '_blank');
+  }
+
   scrollTo(el: string) {
-    document.getElementById(el)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(el);
+    if (element) {
+      // Scroll to section smoothly
+      element.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        this.activeSection = el;
+      }, 100);
+    }
   }
 }
 

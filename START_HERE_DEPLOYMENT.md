@@ -55,7 +55,7 @@ Everything is free!
 2. Click **"Connect"** button on your cluster
 3. Choose **"Connect your application"**
 4. Copy the connection string
-   - Looks like: `mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority`
+   - Looks like: `mongodb+srv://mohanvenkat123456_db_user:Mohan123@cluster0.vlrtdct.mongodb.net/?appName=Cluster0`
 5. **IMPORTANT:** Replace `<password>` with your actual password
 6. Add database name at the end: `/portfolio`
 7. **Final string looks like:**
