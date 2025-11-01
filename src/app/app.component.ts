@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   private targetRotationY = 0;
   
   // API Configuration - Update this for production
-  private readonly API_URL = 'http://localhost:3000'; // Change to your Vercel URL in production
+  private readonly API_URL = window.location.origin;
 
   constructor(private http: HttpClient) {}
 
