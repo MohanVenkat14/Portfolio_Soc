@@ -1,0 +1,297 @@
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-content">
+      <div class="logo">
+        <span class="logo-text"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a (click)="scrollTo('home')">Home</a></li>
+        <li><a (click)="scrollTo('about')">About</a></li>
+        <li><a (click)="scrollTo('experience')">Experience</a></li>
+        <li><a (click)="scrollTo('projects')">Projects</a></li>
+        <li><a (click)="scrollTo('skills')">Skills</a></li>
+        <li><a (click)="scrollTo('contact')">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 3D Background -->
+<div class="three-bg" #canvasContainer></div>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="gradient-text">Mohan</span><br>
+          <span class="hero-name">Venkat Kalla</span>
+        </h1>
+        <p class="hero-subtitle">𝐂𝐨𝐦𝐩𝐮𝐭𝐞𝐫 𝐒𝐜𝐢𝐞𝐧𝐜𝐞 𝐄𝐧𝐠𝐢𝐧𝐞𝐞𝐫𝐢𝐧𝐠 𝐒𝐭𝐮𝐝𝐞𝐧𝐭</p>
+        <p class="hero-description">
+          Passionate about turning classroom knowledge into real-world solutions.
+          Building innovative projects using modern technologies.
+          Always eager to learn, grow, and collaborate.        </p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary" (click)="scrollTo('contact')">Get In Touch</button>
+          <a href="https://github.com/MohanVenkat14" class="btn" style="background: var(--bg-tertiary); color: var(--text-primary);">View My Work</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="profile-glow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section about-section">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-card">
+        <h3 class="card-title">Career Objective</h3>
+        <p>
+          Enthusiastic Computer Science Engineering student pursuing a B.Tech from BVC College of Engineering. 
+          Passionate about applying classroom knowledge to real-world challenges through projects like a Pizza Hut 
+          Frontend Website. Skilled in HTML, CSS, JavaScript, Java, DSA, and DBMS with a strong interest in Java 
+          Development and Frontend Development. Seeking an internship opportunity to contribute, learn, and 
+          grow in a dynamic tech environment.
+        </p>
+      </div>
+      <div class="info-grid">
+        <div class="info-item">
+          <h4>Email</h4>
+         <p>mohanvenkat123456&#64;gmail.com</p>
+        </div>
+        <div class="info-item">
+          <h4>Phone</h4>
+          <p>+91 6304507087</p>
+        </div>
+        <div class="info-item">
+          <h4>Location</h4>
+          <p>India</p>
+        </div>
+        <div class="info-item">
+          <h4>LinkedIn</h4>
+          <a href="https://www.linkedin.com/in/mohan-venkat-kalla-05a3a9343/" target="_blank">Connect with me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="section education-section">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="education-timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>B.Tech Computer Science</h3>
+          <h4>BVC College Of Engineering</h4>
+          <p class="timeline-date">Sept 2022 – Present</p>
+          <p>GPA: 7.55/10.0</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Intermediate MPC</h3>
+          <h4>Megha Jr College</h4>
+          <p class="timeline-date">Sept 2020 – May 2022</p>
+          <p>GPA: 8.3/10.0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+
+<section id="experience" class="section experience-section"> 
+  <div class="container">
+    <h2 class="section-title">Work Experience</h2>
+    <div class="experience-list">
+      <div class="card experience-card">
+        <h3 class="card-title">Software Programmer Intern - JAVA</h3>
+        <h4 class="company">Council for Skills and Competencies (CSC India) - APSCHE Initiative</h4>
+        <p class="duration">May 2025 - July 2025</p>
+        <ul class="experience-points">
+          <li>Successfully completed an intensive 2-month internship program focused on industrial software development using Java.</li>
+          <li>Gained hands-on experience in building robust and scalable Java applications by applying core object-oriented programming (OOP) principles.</li>
+          <li>Developed and implemented key Java concepts including inheritance, polymorphism, exception handling, and multithreading to create efficient backend logic.</li>
+          <li>Enhanced code maintainability and structure by adhering to real-world, modular code development practices.</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">OOPS</span>
+          <span class="tech-tag">Exception Handling</span>
+          <span class="tech-tag">Multithreading</span>
+          <span class="tech-tag">Backend Development</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <div class="container">
+    <h2 class="section-title"></h2>
+    <div class="experience-list">
+      <div class="card experience-card">
+        <h3 class="card-title">JAVA Intern</h3>
+        <h4 class="company">HQL EduTech</h4>
+        <p class="duration">June 2024 - July 2024</p>
+        <ul class="experience-points">
+          <li>Completed a 4-week internship on Core and Advanced Java, gaining hands-on experience in object-oriented programming.</li>
+          <li>Built Java applications using real-time scenarios and modular code practices.</li>
+          <li>Developed Java programs using inheritance, polymorphism, exception handling, multithreading, and JDBC.</li>
+          <li>Applied these concepts to implement backend logic and improve application performance.</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">OOPS</span>
+          <span class="tech-tag">JDBC</span>
+          <span class="tech-tag">Exception Handling</span>
+          <span class="tech-tag">Eclipse</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Projects Section -->
+<section id="projects" class="section projects-section">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="card project-card">
+        <div class="project-header">
+          <h3 class="card-title">PizzaHut Landing Page</h3>
+          <span class="project-badge">Frontend</span>
+        </div>
+        <p class="project-description">
+          Designed and developed a responsive landing page for Pizza Hut to showcase menu and offers. 
+          Focused on clean UI/UX design principles to improve user navigation and visual appeal. 
+          Enhanced user experience by making the interface faster and more intuitive across devices.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+        </div>
+        <a href="https://mohanvenkat14.github.io/Pizza/" class="project-link" target="_blank">View Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <h2 class="section-title">Skills & Certifications</h2>
+    
+    <div class="skills-container">
+      <div class="skills-group">
+        <h3 class="skills-category">Programming Languages</h3>
+        <div class="skills-list">
+          <div class="skill-item">Java</div>
+          <div class="skill-item">HTML</div>
+          <div class="skill-item">CSS</div>
+          <div class="skill-item">JavaScript</div>
+          <div class="skill-item">SQL</div>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3 class="skills-category">Technologies & Tools</h3>
+        <div class="skills-list">
+          <div class="skill-item">ServiceNow</div>
+          <div class="skill-item">VS Code</div>
+          <div class="skill-item">Eclipse</div>
+          <div class="skill-item">Git & GitHub</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="certifications-grid">
+      <div class="card cert-card">
+        <h4 class="cert-name">ServiceNow Certified Application Developer</h4>
+        <p class="cert-date">Sep 2025</p>
+        <p class="cert-desc">Expertise in developing, configuring & deploying applications on the Now platform</p>
+      </div>
+      <div class="card cert-card">
+        <h4 class="cert-name">ServiceNow Certified System Administrator</h4>
+        <p class="cert-date">Aug 2025</p>
+        <p class="cert-desc">System administration, configuration, and maintenance expertise</p>
+      </div>
+      <div class="card cert-card">
+        <h4 class="cert-name">Programming in Java - NPTEL</h4>
+        <p class="cert-date">Jan–Apr 2025</p>
+        <p class="cert-desc">Elite+Gold certification, Top 1% nationwide (93% score)</p>
+      </div>
+      <div class="card cert-card">
+        <h4 class="cert-name">Database Management System - NPTEL</h4>
+        <p class="cert-date">Jan–Mar 2025</p>
+        <p class="cert-desc">Comprehensive knowledge of relational models, ER diagrams, SQL, normalization</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-content">
+      <div class="contact-form-card">
+        <form (ngSubmit)="submitContact()" #contactFormRef="ngForm">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" name="name" [(ngModel)]="contactForm.name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" name="email" [(ngModel)]="contactForm.email" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" rows="5" name="message" [(ngModel)]="contactForm.message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <div *ngIf="submitted" class="success-message">Message sent successfully!</div>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <h4>Email</h4>
+         <p>mohanvenkat123456&#64;gmail.com</p>
+
+        </div>
+        <div class="contact-item">
+          <h4>Phone</h4>
+          <p>+91 6304507087</p>
+        </div>
+        <div class="contact-item">
+          <h4>Follow Me</h4>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/mohan-venkat-kalla-05a3a9343/" class="social-link" target="_blank">LinkedIn</a>
+            <a href="https://github.com/MohanVenkat14" class="social-link" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 Mohan Venkat  All rights reserved.</p>
+    <p>Built with Angular, Express, MongoDB, and passion for innovation</p>
+  </div>
+</footer>
+
