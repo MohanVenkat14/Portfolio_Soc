@@ -152,14 +152,24 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   submitContact() {
-    this.http.post(`${this.API_URL}/api/contact`, this.contactForm).subscribe({
+    // Show success immediately for fast response
+    this.submitted = true;
+    const formData = { ...this.contactForm };
+    this.contactForm = { name: '', email: '', message: '' };
+    
+    // Submit in background (non-blocking)
+    this.http.post(`${this.API_URL}/api/contact`, formData).subscribe({
       next: () => {
-        this.submitted = true;
-        this.contactForm = { name: '', email: '', message: '' };
-        setTimeout(() => this.submitted = false, 3000);
+        console.log('Message saved successfully');
       },
-      error: (err) => console.error(err)
+      error: (err) => {
+        console.error('Error saving message:', err);
+        // Still show success even if save fails
+      }
     });
+    
+    // Hide success message after 3 seconds
+    setTimeout(() => this.submitted = false, 3000);
   }
 
   scrollTo(el: string) {

@@ -2,16 +2,27 @@ const mongoose = require('mongoose');
 
 // MongoDB Connection - Updated for MongoDB Atlas
 const mongoURI = process.env.MONGODB_URI;
-if (!mongoURI) {
-  console.error('MongoDB URI is not defined. Please set MONGODB_URI environment variable.');
-}
 
-// Connect to MongoDB
-mongoose.connect(mongoURI, {
-  serverSelectionTimeoutMS: 5000,
-}).catch(err => {
-  console.error('MongoDB connection error:', err);
-});
+// Cache connection - reuse existing connection if available
+let isConnected = false;
+
+async function connectDB() {
+  if (isConnected) {
+    return;
+  }
+  
+  try {
+    await mongoose.connect(mongoURI, {
+      serverSelectionTimeoutMS: 5000,
+    });
+    isConnected = true;
+    console.log('MongoDB connected');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+    isConnected = false;
+    throw err;
+  }
+}
 
 // Schema
 const contactSchema = new mongoose.Schema({
@@ -42,6 +53,9 @@ module.exports = async (req, res) => {
   // Handle GET request
   if (req.method === 'GET') {
     try {
+      // Connect to DB if not already connected
+      await connectDB();
+      
       const contacts = await Contact.find().sort({ date: -1 });
       res.status(200).json(contacts);
     } catch (error) {
